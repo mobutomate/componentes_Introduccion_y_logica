@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CamaraComponentes : MonoBehaviour
+{
+    [Range(20, 100)]
+    [SerializeField] int cameraFieldOptions = 60;
+
+    
+
+    AudioListener audioLis;
+
+    void Start()
+    {
+        
+        audioLis = GetComponent<AudioListener>();
+    }
+
+    void Update()
+    {
+        Camera.main.fieldOfView = cameraFieldOptions;
+
+        if(Input.GetKey(KeyCode.P))
+        {
+            Destroy(audioLis);
+        }
+        
+    }
+}//class
