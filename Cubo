@@ -1,0 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CuboComponentes : MonoBehaviour
+{
+    [SerializeField] int x_size, y_size, z_size;
+
+
+    [SerializeField] Material Morado, dfltMaterial;
+
+
+    BoxCollider box_collider;
+    MeshRenderer meshRer;
+    
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        box_collider = GetComponent<BoxCollider>();
+        meshRer = GetComponent<MeshRenderer>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        TamañoDeCollider();
+        MaterialDeRenderer();
+        
+    }
+
+    void TamañoDeCollider()
+    {
+        box_collider.size = new Vector3(x_size, y_size, z_size);
+    }
+
+    void MaterialDeRenderer()
+    {
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            meshRer.material = Morado;
+        }
+        else if(Input.GetKey(KeyCode.LeftArrow))
+        {
+            meshRer.material = dfltMaterial;
+        }
+    }
+
+
+}//class
